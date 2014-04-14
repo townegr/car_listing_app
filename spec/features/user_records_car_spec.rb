@@ -15,6 +15,8 @@ feature 'record a newly acquired car', %Q{
   # Upon successfully creating a car, I am redirected so that I can create another car.
 
   scenario 'create a newly acquired car record' do
+
+    manufacturer = FactoryGirl.create(:manufacturer)
     prev_count = Car.count
     visit new_car_url
 
@@ -22,8 +24,9 @@ feature 'record a newly acquired car', %Q{
     select 1980, from: 'Year'
     fill_in 'Mileage', with: '1000'
     fill_in 'Description', with: 'Well, the engine still works.'
+    select manufacturer.name, from: 'Manufacturer'
     click_button 'Add Car'
-
+    save_and_open_page
     expect(page).to have_content('Your car was added')
     expect(Car.count).to eq(prev_count + 1)
   end
