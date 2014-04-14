@@ -2,6 +2,7 @@
   <%= f.input :color %>
   <%= f.input :year, collection: 1980..2014 %>
   <%= f.input :mileage %>
+  <%= f.association :manufacturer, label_method: :name, label: 'Manufacturer' %>
   <%= f.input :description %>
   <%= f.submit 'Add Car' %>
 <% end %>

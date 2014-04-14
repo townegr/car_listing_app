@@ -6,5 +6,7 @@ FactoryGirl.define do
     year 1980
     mileage '15000'
     description "She's a real beauty!"
+
+    manufacturer
   end
 end

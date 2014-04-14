@@ -19,7 +19,8 @@ class CarsController < ApplicationController
       :color,
       :year,
       :mileage,
-      :description
+      :description,
+      :manufacturer_id
       )
   end
 end
