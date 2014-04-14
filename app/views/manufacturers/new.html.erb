@@ -1,0 +1,9 @@
+<%= simple_form_for @manufacturer do |f| %>
+  <%= f.input :name %>
+  <%= f.input :country, collection: [
+    'USA', 'England', 'Japan',
+    'Sweden', 'Italy', 'China',
+    'India', 'France', 'Germany'
+    ] %>
+  <%= f.submit 'Add Manufacturer' %>
+<% end %>
