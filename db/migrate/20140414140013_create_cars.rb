@@ -5,8 +5,10 @@ class CreateCars < ActiveRecord::Migration
       t.integer :year, null: false
       t.string :mileage, null: false
       t.text :description
+      t.integer :manufacturer_id, null: false
 
       t.timestamps
     end
+  add_index :cars, :manufacturer_id
   end
 end
