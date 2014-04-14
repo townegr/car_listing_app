@@ -26,7 +26,7 @@ feature 'record a newly acquired car', %Q{
     fill_in 'Description', with: 'Well, the engine still works.'
     select manufacturer.name, from: 'Manufacturer'
     click_button 'Add Car'
-    save_and_open_page
+
     expect(page).to have_content('Your car was added')
     expect(Car.count).to eq(prev_count + 1)
   end
