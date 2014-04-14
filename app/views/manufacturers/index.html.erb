@@ -1,0 +1,9 @@
+<% @manufacturers.each do |manufacturer| %>
+  <div>
+    <p><strong><%= manufacturer.name %></strong></p>
+
+
+    <%= link_to manufacturer.name, manufacturer %>
+    <%= link_to "Delete #{manufacturer.name}", manufacturer, method: :delete %>
+  </div>
+<% end %>

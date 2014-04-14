@@ -27,4 +27,13 @@ feature 'record a newly acquired car', %Q{
     expect(page).to have_content('Your car was added')
     expect(Car.count).to eq(prev_count + 1)
   end
+
+  scenario 'create an invalid car record' do
+    prev_count = Car.count
+    visit new_car_url
+    click_button 'Add Car'
+
+    expect(page).to have_content("can't be blank")
+    expect(Car.count).to eq(prev_count)
+  end
 end

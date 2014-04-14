@@ -13,6 +13,20 @@ class CarsController < ApplicationController
     end
   end
 
+  def index
+    @cars = Car.all
+  end
+
+  def show
+    @car = Car.find(params[:id])
+  end
+
+  def destroy
+    @car = Car.find(params[:id])
+    @car.delete
+    redirect_to cars_url
+  end
+
   private
   def car_params
     params.require(:car).permit(

@@ -22,4 +22,13 @@ feature "record a car manufacturer", %Q{
     expect(page).to have_content('Manufacturer has been added')
     expect(Manufacturer.count).to eq(prev_count + 1)
   end
+
+  scenario 'create an invalid car manufacturer' do
+    prev_count = Manufacturer.count
+    visit new_manufacturer_url
+    click_button 'Add Manufacturer'
+
+    expect(page).to have_content("can't be blank")
+    expect(Manufacturer.count).to eq(prev_count)
+  end
 end
